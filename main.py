@@ -56,13 +56,13 @@ for x in range(0, numofrows):
     low = 10000
     thislow = 0
     for x in range(0, 10):
-        thislow = myresult[x][3]
+        thislow = float(myresult[x][3])
         if (thislow < low):
             low = thislow
 
     theid = myresult[x][0]
 
-    sql1 = "UPDATE coin_data SET lows = %s where crid = %s "
+    sql1 = "UPDATE coin_data SET lows = %s where id = %s "
     sql2 = (low, theid)
     mycursor.execute(sql1, sql2)
     mydb.commit()
@@ -94,7 +94,7 @@ for x in range(0, numofrows):
 
     theid = myresult[x][0]
     print("theid:", theid)
-    sql1 = "UPDATE coin_data SET highs = %s where crid = %s "
+    sql1 = "UPDATE coin_data SET highs = %s where id = %s "
     sql2 = (high, theid)
     mycursor.execute(sql1, sql2)
     mydb.commit()
